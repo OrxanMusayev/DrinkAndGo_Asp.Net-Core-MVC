@@ -1,0 +1,19 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<li class="dropdown">
+    <a asp-controller="Drink"
+       asp-action="List"
+       class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Drinks</a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        @foreach (var category in Model)
+        {
+            <li>
+                <a asp-controller="Drink" asp-action="List"
+                   asp-route-category="@category.CategoryName">@category.CategoryName</a>
+            </li>
+        }
+        <li><hr class="dropdown-divider"></li>
+        <li>
+            <a asp-controller="Drink" asp-action="List" asp-route-category="">View all drinks</a>
+        </li>
+    </ul>
+</li>
